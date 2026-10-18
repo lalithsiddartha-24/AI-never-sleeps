@@ -18,6 +18,7 @@ import api from '../api';
 import { SearchBar } from '../components/SearchBar';
 import { SectionHeader } from '../components/SectionHeader';
 import { NewsCard, NewsListItem } from '../components/NewsCard';
+import { BreakingNewsStack } from '../components/BreakingNewsStack';
 import { ToolCard } from '../components/ToolCard';
 import { OfferCard } from '../components/OfferCard';
 import { ModelCard } from '../components/ModelCard';
@@ -237,57 +238,8 @@ export default function Home() {
             <Link to="/agents" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Agents</Link>
           </div>
         </motion.div>
-          <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[420px]">
-            <div className="absolute inset-[8%] rounded-full bg-accent/[0.05] blur-2xl" />
-            <motion.div
-              animate={reduceMotion ? undefined : { rotate: 360 }}
-              transition={reduceMotion ? undefined : { duration: 72, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-[8%] rounded-full border border-dashed border-accent/20"
-            >
-              <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-accent shadow-[0_0_20px_rgba(11,84,151,0.5)]" />
-            </motion.div>
-            <motion.div
-              animate={reduceMotion ? undefined : { rotate: -360 }}
-              transition={reduceMotion ? undefined : { duration: 48, repeat: Infinity, ease: 'linear' }}
-              className="absolute inset-[19%] rounded-full border border-accent/15"
-            >
-              <span className="absolute right-[8%] top-[14%] h-2.5 w-2.5 rounded-full bg-sky-500 shadow-[0_0_16px_rgba(14,165,233,0.55)]" />
-            </motion.div>
-            <div className="absolute inset-[28%] rounded-full border border-accent/10" />
-            <motion.div
-              animate={reduceMotion ? undefined : { scale: [1, 1.045, 1] }}
-              transition={reduceMotion ? undefined : { duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[2rem] border border-white/30 bg-accent text-white shadow-[0_24px_70px_rgba(11,84,151,0.28)] sm:h-36 sm:w-36"
-            >
-              <Sparkles size={34} weight="duotone" />
-              <span className="mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/75">AI signal</span>
-              <span className="mt-0.5 text-sm font-semibold tracking-tight">Live now</span>
-            </motion.div>
-
-            <motion.div
-              animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
-              transition={reduceMotion ? undefined : { duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute left-0 top-[22%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5 sm:left-[2%]"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 text-accent"><Newspaper size={17} weight="duotone" /></span>
-              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Signal</span><span className="block text-xs font-semibold text-zinc-100">AI news</span></span>
-            </motion.div>
-            <motion.div
-              animate={reduceMotion ? undefined : { y: [0, 7, 0] }}
-              transition={reduceMotion ? undefined : { duration: 4.3, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
-              className="absolute right-0 top-[38%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/10 text-sky-700"><Cpu size={17} weight="duotone" /></span>
-              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Watchlist</span><span className="block text-xs font-semibold text-zinc-100">New models</span></span>
-            </motion.div>
-            <motion.div
-              animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
-              transition={reduceMotion ? undefined : { duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
-              className="absolute bottom-[17%] left-[12%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-700"><FileText size={17} weight="duotone" /></span>
-              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Explore</span><span className="block text-xs font-semibold text-zinc-100">Fresh research</span></span>
-            </motion.div>
+          <div className="relative z-10 w-full py-2">
+            <BreakingNewsStack articles={breaking.data?.items || []} />
           </div>
         </div>
       </motion.section>
