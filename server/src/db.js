@@ -4,7 +4,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const dataDir = path.join(__dirname, '..', 'data');
+// Vercel's function bundle is read-only. /tmp is writable, but ephemeral:
+// use a persistent database service for production data that must survive.
+const dataDir = process.env.VERCEL === '1'
+  ? path.join('/tmp', 'ai-intelligence-hub')
+  : path.join(__dirname, '..', 'data');
 if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
 
 export const db = new Database(path.join(dataDir, 'hub.db'));

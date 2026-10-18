@@ -54,9 +54,15 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-const PORT = config.port;
-app.listen(PORT, () => {
-  console.log(`[server] AI Intelligence Hub API listening on http://localhost:${PORT}`);
-  console.log(`[server] optional keys — GNews:${config.gnewsApiKey ? 'on' : 'off'} NewsAPI:${config.newsApiKey ? 'on' : 'off'} AI:${config.aiApiKey ? 'on' : 'off'}`);
-  startScheduler();
-});
+// Vercel serves the exported app as a function. Keep the listener and
+// background scheduler for local/standalone deployments only.
+if (process.env.VERCEL !== '1') {
+  const PORT = config.port;
+  app.listen(PORT, () => {
+    console.log(`[server] AI Intelligence Hub API listening on http://localhost:${PORT}`);
+    console.log(`[server] optional keys — GNews:${config.gnewsApiKey ? 'on' : 'off'} NewsAPI:${config.newsApiKey ? 'on' : 'off'} AI:${config.aiApiKey ? 'on' : 'off'}`);
+    startScheduler();
+  });
+}
+
+export default app;
