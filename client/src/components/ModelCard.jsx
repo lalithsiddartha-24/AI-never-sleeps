@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Cpu, ExternalLink } from 'lucide-react';
+import { Cpu, ArrowSquareOut as ExternalLink } from '@phosphor-icons/react';
 import { Badge } from './Chips';
 import { BookmarkButton } from './BookmarkButton';
 import { compactNumber, formatDate, parseList } from '../utils';

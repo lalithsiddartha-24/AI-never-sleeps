@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, Wrench } from 'lucide-react';
+import { MagnifyingGlass as Search, Wrench } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { ToolCard } from '../components/ToolCard';

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ExternalLink, FileText } from 'lucide-react';
+import { ArrowSquareOut as ExternalLink, FileText } from '@phosphor-icons/react';
 import { Badge, Tag } from './Chips';
 import { BookmarkButton } from './BookmarkButton';
 import { formatDate, parseList, timeAgo } from '../utils';
@@ -16,7 +16,7 @@ export function PaperCard({ paper, index = 0 }) {
       className="group flex h-full flex-col gap-3 border border-line bg-surface p-4 transition-colors hover:border-zinc-600/60"
     >
       <div className="flex items-start gap-3">
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-line bg-surface2 text-blue-300">
+        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center border border-line bg-surface2 text-accent">
           <FileText size={15} />
         </span>
         <div className="min-w-0 flex-1">

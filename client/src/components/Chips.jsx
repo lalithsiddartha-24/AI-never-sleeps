@@ -20,7 +20,7 @@ export function ImportanceMeter({ importance = 0, className = '' }) {
         <span
           key={i}
           className={`w-[3px] rounded-sm ${
-            i <= level ? (level >= 4 ? 'bg-accent' : 'bg-zinc-400') : 'bg-white/10'
+            i <= level ? (level >= 4 ? 'bg-accent' : 'bg-zinc-400') : 'bg-line'
           }`}
           style={{ height: `${4 + i * 2}px` }}
         />
@@ -43,9 +43,9 @@ export function Badge({ children, tone = 'neutral', className = '' }) {
   const tones = {
     neutral: 'border-line bg-surface2 text-zinc-400',
     accent: 'border-accent/30 bg-accent/10 text-accent',
-    green: 'border-emerald-400/25 bg-emerald-400/10 text-emerald-300',
-    amber: 'border-amber-400/25 bg-amber-400/10 text-amber-300',
-    red: 'border-red-400/25 bg-red-400/10 text-red-300',
+    green: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+    amber: 'border-amber-200 bg-amber-50 text-amber-800',
+    red: 'border-red-200 bg-red-50 text-red-800',
   };
   return (
     <span

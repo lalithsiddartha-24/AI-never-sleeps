@@ -1,4 +1,4 @@
-import { Bookmark } from 'lucide-react';
+import { BookmarkSimple as Bookmark } from '@phosphor-icons/react';
 import { useBookmarks } from '../hooks/useBookmarks';
 
 export function BookmarkButton({ itemType, itemId, className = '' }) {
@@ -18,10 +18,10 @@ export function BookmarkButton({ itemType, itemId, className = '' }) {
       className={`inline-flex h-7 w-7 items-center justify-center border transition-colors ${
         active
           ? 'border-accent/40 bg-accent/10 text-accent'
-          : 'border-line bg-surface2/60 text-zinc-500 hover:border-zinc-600 hover:text-zinc-300'
+          : 'border-line bg-surface text-accent hover:border-accent/50 hover:bg-accent/5'
       } ${className}`}
     >
-      <Bookmark size={13} fill={active ? 'currentColor' : 'none'} />
+      <Bookmark size={15} weight={active ? 'fill' : 'regular'} color="#0B5497" />
     </button>
   );
 }

@@ -2,13 +2,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import {
   Bell,
-  Bookmark,
+  BookmarkSimple as Bookmark,
   Clock,
   GraduationCap,
-  Search,
-  Sparkles,
+  MagnifyingGlass as Search,
+  Sparkle as Sparkles,
   Tag,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { OfferCard } from '../components/OfferCard';

@@ -3,7 +3,7 @@ import { categoryStyle } from '../utils';
 export function FilterBar({ options, value, onChange, allLabel = 'All', colored = false, className = '' }) {
   return (
     <div
-      className={`no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0 ${className}`}
+      className={`-mx-4 flex flex-nowrap gap-2 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0 ${className}`}
       role="tablist"
     >
       <FilterPill
@@ -31,7 +31,7 @@ function FilterPill({ label, active, onClick, dotColor }) {
       role="tab"
       aria-selected={active}
       onClick={onClick}
-      className={`inline-flex shrink-0 items-center gap-1.5 border px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors ${
+      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider transition-colors ${
         active
           ? 'border-accent/50 bg-accent/10 text-accent'
           : 'border-line bg-surface text-zinc-400 hover:border-zinc-600 hover:text-zinc-200'

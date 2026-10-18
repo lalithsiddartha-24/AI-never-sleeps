@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Monitor, Newspaper, Target, Users } from 'lucide-react';
+import { ArrowLeft, ArrowSquareOut as ExternalLink, Monitor, Newspaper, Target, Users } from '@phosphor-icons/react';
 import api from '../api';
 import { Badge, Tag } from '../components/Chips';
 import { Monogram } from '../components/Monogram';

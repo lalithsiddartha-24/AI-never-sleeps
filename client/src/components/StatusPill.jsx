@@ -1,11 +1,11 @@
 import { offerStatus } from '../utils';
 
 const TONE_CLS = {
-  green: 'border-emerald-400/25 bg-emerald-400/10 text-emerald-300',
-  amber: 'border-amber-400/25 bg-amber-400/10 text-amber-300',
+  green: 'border-emerald-200 bg-emerald-50 text-emerald-800',
+  amber: 'border-amber-200 bg-amber-50 text-amber-800',
   accent: 'border-accent/30 bg-accent/10 text-accent',
   neutral: 'border-line bg-surface2 text-zinc-400',
-  red: 'border-red-400/25 bg-red-400/10 text-red-300',
+  red: 'border-red-200 bg-red-50 text-red-800',
 };
 
 export function StatusPill({ status, className = '' }) {

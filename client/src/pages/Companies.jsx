@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Building2, Search } from 'lucide-react';
+import { Buildings as Building2, MagnifyingGlass as Search } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { CompanyCard } from '../components/CompanyCard';

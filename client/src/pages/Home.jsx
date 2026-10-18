@@ -1,18 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
 import {
-  Activity,
+  Pulse as Activity,
   ArrowRight,
-  Bot,
+  Robot as Bot,
   Cpu,
   FileText,
   Flame,
   GraduationCap,
   Newspaper,
-  Sparkles,
+  Sparkle as Sparkles,
   Wrench,
   X,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import api from '../api';
 import { SearchBar } from '../components/SearchBar';
 import { SectionHeader } from '../components/SectionHeader';
@@ -91,6 +92,7 @@ function InterestPicker({ selected, onSave, onDismiss }) {
 }
 
 export default function Home() {
+  const reduceMotion = useReducedMotion();
   const [interests, setInterests] = useLocalStorage(INTEREST_KEY, []);
   const [pickerSeen, setPickerSeen] = useLocalStorage(INTEREST_SEEN_KEY, false);
   const [editingInterests, setEditingInterests] = useState(false);
@@ -180,35 +182,115 @@ export default function Home() {
   return (
     <div className="space-y-12">
       {/* Hero */}
-      <section className="relative overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-white via-white to-blue-50 px-6 py-14 shadow-sm sm:px-10 sm:py-20">
-        <div className="relative mx-auto max-w-3xl text-center">
-          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-white/80 px-3.5 py-1.5 text-[11px] font-medium tracking-wide text-zinc-400 shadow-sm">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+      <motion.section
+        initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, ease: 'easeOut' }}
+        className="relative isolate overflow-hidden rounded-[2rem] border border-line bg-gradient-to-br from-surface via-surface to-accent/10 shadow-sm"
+      >
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="absolute -right-24 -top-28 h-80 w-80 rounded-full bg-accent/[0.07] blur-3xl" />
+          <div className="absolute -bottom-36 left-[18%] h-72 w-72 rounded-full bg-sky-400/[0.08] blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.16] [background-image:radial-gradient(var(--color-accent)_0.7px,transparent_0.7px)] [background-size:24px_24px]" />
+        </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-6 lg:px-14 lg:py-12">
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, x: -14 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.65, delay: 0.12, ease: 'easeOut' }}
+          className="relative z-10"
+        >
+        <p className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-surface/90 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-accent shadow-sm">
+            <span className="relative flex h-2 w-2">
+              {!reduceMotion && <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-50" />}
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            Live AI intelligence
+            Always on. Always moving.
           </p>
-          <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-[-0.045em] text-zinc-50 sm:text-6xl">
-            Discover what&apos;s next in <span className="text-accent">AI.</span>
+          <h1 className="mt-6 max-w-2xl text-4xl font-bold leading-[1.04] tracking-[-0.05em] text-zinc-50 sm:text-5xl lg:text-6xl">
+            Your AI signal,
+            <br />
+            <span className="relative inline-block text-accent">
+              never sleeps.
+              <motion.span
+                aria-hidden="true"
+                initial={reduceMotion ? false : { scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.7, delay: 0.65, ease: 'easeOut' }}
+                className="absolute -bottom-1 left-0 h-1 w-full origin-left rounded-full bg-accent/25"
+              />
+            </span>
           </h1>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-zinc-400 sm:text-lg">
+          <p className="mt-5 max-w-xl text-sm leading-relaxed text-zinc-400 sm:text-base">
             The latest news, tools, models, research and agents — thoughtfully gathered in one place.
           </p>
-          <div className="mx-auto mt-7 max-w-2xl">
+          <div className="mt-7 max-w-2xl">
             <SearchBar variant="hero" />
           </div>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-zinc-500">
-            <Link to="/news" className="transition-colors hover:text-accent">News</Link>
-            <Link to="/tools" className="transition-colors hover:text-accent">Tools</Link>
-            <Link to="/models" className="transition-colors hover:text-accent">Models</Link>
-            <Link to="/research" className="transition-colors hover:text-accent">Research</Link>
-            <Link to="/companies" className="transition-colors hover:text-accent">Companies</Link>
-            <Link to="/student-offers" className="transition-colors hover:text-accent">Student Offers</Link>
-            <Link to="/agents" className="transition-colors hover:text-accent">Agents</Link>
+          <div className="mt-6 flex flex-wrap gap-2 text-xs font-medium">
+            <Link to="/news" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">News</Link>
+            <Link to="/tools" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Tools</Link>
+            <Link to="/models" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Models</Link>
+            <Link to="/research" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Research</Link>
+            <Link to="/companies" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Companies</Link>
+            <Link to="/student-offers" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Student Offers</Link>
+            <Link to="/agents" className="rounded-full border border-line bg-surface/80 px-3 py-1.5 text-zinc-500 transition-colors hover:border-accent/30 hover:text-accent">Agents</Link>
+          </div>
+        </motion.div>
+          <div aria-hidden="true" className="relative mx-auto aspect-square w-full max-w-[420px]">
+            <div className="absolute inset-[8%] rounded-full bg-accent/[0.05] blur-2xl" />
+            <motion.div
+              animate={reduceMotion ? undefined : { rotate: 360 }}
+              transition={reduceMotion ? undefined : { duration: 72, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-[8%] rounded-full border border-dashed border-accent/20"
+            >
+              <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-surface bg-accent shadow-[0_0_20px_rgba(11,84,151,0.5)]" />
+            </motion.div>
+            <motion.div
+              animate={reduceMotion ? undefined : { rotate: -360 }}
+              transition={reduceMotion ? undefined : { duration: 48, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-[19%] rounded-full border border-accent/15"
+            >
+              <span className="absolute right-[8%] top-[14%] h-2.5 w-2.5 rounded-full bg-sky-500 shadow-[0_0_16px_rgba(14,165,233,0.55)]" />
+            </motion.div>
+            <div className="absolute inset-[28%] rounded-full border border-accent/10" />
+            <motion.div
+              animate={reduceMotion ? undefined : { scale: [1, 1.045, 1] }}
+              transition={reduceMotion ? undefined : { duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute left-1/2 top-1/2 flex h-32 w-32 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-[2rem] border border-white/30 bg-accent text-white shadow-[0_24px_70px_rgba(11,84,151,0.28)] sm:h-36 sm:w-36"
+            >
+              <Sparkles size={34} weight="duotone" />
+              <span className="mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-white/75">AI signal</span>
+              <span className="mt-0.5 text-sm font-semibold tracking-tight">Live now</span>
+            </motion.div>
+
+            <motion.div
+              animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
+              transition={reduceMotion ? undefined : { duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="absolute left-0 top-[22%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5 sm:left-[2%]"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10 text-accent"><Newspaper size={17} weight="duotone" /></span>
+              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Signal</span><span className="block text-xs font-semibold text-zinc-100">AI news</span></span>
+            </motion.div>
+            <motion.div
+              animate={reduceMotion ? undefined : { y: [0, 7, 0] }}
+              transition={reduceMotion ? undefined : { duration: 4.3, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
+              className="absolute right-0 top-[38%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-sky-500/10 text-sky-700"><Cpu size={17} weight="duotone" /></span>
+              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Watchlist</span><span className="block text-xs font-semibold text-zinc-100">New models</span></span>
+            </motion.div>
+            <motion.div
+              animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
+              transition={reduceMotion ? undefined : { duration: 4.8, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
+              className="absolute bottom-[17%] left-[12%] flex items-center gap-2 rounded-2xl border border-line bg-surface/95 px-3 py-2 shadow-lg shadow-accent/5"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-700"><FileText size={17} weight="duotone" /></span>
+              <span><span className="block text-[9px] font-semibold uppercase tracking-widest text-zinc-500">Explore</span><span className="block text-xs font-semibold text-zinc-100">Fresh research</span></span>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Interest picker */}
       {showPicker && (
@@ -269,7 +351,7 @@ export default function Home() {
             {trending.loading ? (
               <div className="space-y-3 p-4">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <div key={i} className="h-4 animate-pulse rounded bg-white/6" />
+                  <div key={i} className="h-4 animate-pulse rounded bg-line/70" />
                 ))}
               </div>
             ) : (

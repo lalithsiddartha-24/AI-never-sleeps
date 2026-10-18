@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CornerDownLeft, Loader2, Search, X } from 'lucide-react';
+import { ArrowBendDownLeft as CornerDownLeft, CircleNotch as Loader2, MagnifyingGlass as Search, X } from '@phosphor-icons/react';
 import api from '../api';
 import { useDebounce, useOnClickOutside } from '../hooks/useCommon';
 import { categoryStyle, timeAgo } from '../utils';
@@ -144,7 +144,7 @@ export function SearchBar({ variant = 'header' }) {
             className="absolute left-0 right-0 top-full z-50 max-h-[70vh] overflow-y-auto border border-t-0 border-line bg-surface shadow-2xl shadow-black/60"
           >
             {results.error && (
-              <p className="px-4 py-3 text-xs text-red-400">Search unavailable — backend not reachable.</p>
+              <p className="px-4 py-3 text-xs text-red-700">Search unavailable — backend not reachable.</p>
             )}
             {!results.error && totalFound === 0 && (
               <p className="px-4 py-4 text-center text-xs text-zinc-500">

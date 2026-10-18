@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Cpu, ExternalLink, Search, X } from 'lucide-react';
+import { Cpu, ArrowSquareOut as ExternalLink, MagnifyingGlass as Search, X } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { ModelCard } from '../components/ModelCard';

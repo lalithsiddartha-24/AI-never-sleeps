@@ -2,17 +2,17 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   ArrowLeft,
-  BadgeCheck,
-  CalendarClock,
-  CheckCircle2,
-  ExternalLink,
+  SealCheck as BadgeCheck,
+  CalendarDots as CalendarClock,
+  CheckCircle as CheckCircle2,
+  ArrowSquareOut as ExternalLink,
   Gift,
   Globe,
   GraduationCap,
   Info,
   ShieldCheck,
   UserCheck,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import api from '../api';
 import { Badge, CategoryChip, Tag } from '../components/Chips';
 import { Monogram } from '../components/Monogram';
@@ -150,7 +150,7 @@ export default function StudentOfferPage() {
               {offer.free_credits && <Row label="Free credits">{offer.free_credits}</Row>}
               <Row label="Student price">
                 {offer.student_price ? (
-                  <span className="font-mono text-emerald-300 tnum">{offer.student_price}</span>
+                  <span className="font-mono text-emerald-800 tnum">{offer.student_price}</span>
                 ) : (
                   'Not separately published — see official page.'
                 )}
@@ -194,7 +194,7 @@ export default function StudentOfferPage() {
               {offer.geographic_restrictions && <Row label="Geographic limits">{offer.geographic_restrictions}</Row>}
               <Row label="Expiration">
                 {offer.expiration_date ? (
-                  <span className="inline-flex items-center gap-1.5 text-amber-300">
+                  <span className="inline-flex items-center gap-1.5 text-amber-800">
                     <CalendarClock size={12} /> {formatDate(toISO(offer.expiration_date))}
                   </span>
                 ) : (
@@ -231,7 +231,7 @@ export default function StudentOfferPage() {
               <Row label="Last verified">
                 {offer.last_verified_at ? (
                   <span className="inline-flex items-center gap-1.5">
-                    <BadgeCheck size={12} className="text-emerald-400" />
+                    <BadgeCheck size={12} className="text-emerald-700" />
                     {formatDate(toISO(offer.last_verified_at))}
                   </span>
                 ) : (

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { FileText, Search } from 'lucide-react';
+import { FileText, MagnifyingGlass as Search } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { PaperCard } from '../components/PaperCard';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Bookmark, Cpu, FileText, GraduationCap, Newspaper, Wrench } from 'lucide-react';
+import { BookmarkSimple as Bookmark, Cpu, FileText, GraduationCap, Newspaper, Wrench } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { NewsCard } from '../components/NewsCard';

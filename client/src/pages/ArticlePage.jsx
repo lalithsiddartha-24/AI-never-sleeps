@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Layers, Lightbulb, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowSquareOut as ExternalLink, Stack as Layers, Lightbulb, Sparkle as Sparkles } from '@phosphor-icons/react';
 import api from '../api';
 import { CategoryChip, ImportanceMeter, Tag } from '../components/Chips';
 import { Monogram, Thumbnail } from '../components/Monogram';
@@ -137,7 +137,7 @@ export default function ArticlePage() {
           {a.why_it_matters && (
             <section className="mt-6">
               <h2 className="mb-2 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-400">
-                <Lightbulb size={11} className="text-amber-300" /> Why it matters
+                <Lightbulb size={11} className="text-amber-700" /> Why it matters
               </h2>
               <p className="text-sm leading-relaxed text-zinc-300">{a.why_it_matters}</p>
             </section>

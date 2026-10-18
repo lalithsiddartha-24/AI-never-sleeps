@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BadgeCheck, ExternalLink, GraduationCap } from 'lucide-react';
+import { SealCheck as BadgeCheck, ArrowSquareOut as ExternalLink, GraduationCap } from '@phosphor-icons/react';
 import { Badge, CategoryChip } from './Chips';
 import { Monogram } from './Monogram';
 import { BookmarkButton } from './BookmarkButton';

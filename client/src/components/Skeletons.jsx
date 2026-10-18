@@ -1,5 +1,5 @@
 export function Skeleton({ className = '' }) {
-  return <div className={`animate-pulse rounded bg-white/6 ${className}`} />;
+  return <div className={`animate-pulse rounded bg-line/70 ${className}`} />;
 }
 
 export function SkeletonNewsCard({ withImage = true }) {

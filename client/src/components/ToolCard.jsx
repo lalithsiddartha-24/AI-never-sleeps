@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ExternalLink, Star } from 'lucide-react';
+import { ArrowSquareOut as ExternalLink, Star } from '@phosphor-icons/react';
 import { Badge, Tag } from './Chips';
 import { Monogram } from './Monogram';
 import { BookmarkButton } from './BookmarkButton';
@@ -50,7 +50,7 @@ export function ToolCard({ tool, index = 0 }) {
         {tool.open_source === 1 && <Badge tone="green">Open Source</Badge>}
         {tool.category && <Badge>{tool.category}</Badge>}
         {rating && (
-          <span className="inline-flex items-center gap-1 font-mono text-[10px] text-amber-300 tnum">
+          <span className="inline-flex items-center gap-1 font-mono text-[10px] text-amber-800 tnum">
             <Star size={10} fill="currentColor" /> {rating}
           </span>
         )}

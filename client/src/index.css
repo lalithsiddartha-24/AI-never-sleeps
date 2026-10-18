@@ -1,23 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #f5f5f7;
-  --color-surface: #ffffff;
-  --color-surface2: #f5f5f7;
-  --color-line: #e5e5ea;
-  --color-accent: #0071e3;
-  --color-accent-dim: #005bb5;
-  --color-zinc-50: #1d1d1f;
-  --color-zinc-100: #292a2d;
-  --color-zinc-200: #3a3c3f;
-  --color-zinc-300: #515458;
-  --color-zinc-400: #6e7175;
-  --color-zinc-500: #85888c;
-  --color-zinc-600: #9b9da1;
-  --color-zinc-700: #b3b5b9;
-  --color-zinc-800: #d1d2d4;
-  --color-zinc-900: #e5e5e7;
-  --color-zinc-950: #f5f5f7;
+  --color-ink: #fffef9;
+  --color-surface: #fffefb;
+  --color-surface2: #f1f5f8;
+  --color-line: #d9e3eb;
+  --color-accent: #0b5497;
+  --color-accent-dim: #083f72;
+  --color-zinc-50: #17344d;
+  --color-zinc-100: #25415a;
+  --color-zinc-200: #354f67;
+  --color-zinc-300: #4a657d;
+  --color-zinc-400: #5f7a91;
+  --color-zinc-500: #718ba0;
+  --color-zinc-600: #879eaf;
+  --color-zinc-700: #a5b6c3;
+  --color-zinc-800: #c6d2dc;
+  --color-zinc-900: #e4ebf0;
+  --color-zinc-950: #fffef9;
   --font-sans: Aptos, "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
   --font-mono: Aptos, "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
 }
@@ -28,7 +28,7 @@ html {
 
 body {
   background-color: var(--color-ink);
-  color: #1d1d1f;
+  color: #17344d;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
@@ -46,12 +46,12 @@ textarea {
 }
 
 ::selection {
-  background: rgba(0, 113, 227, 0.18);
+  background: rgba(11, 84, 151, 0.16);
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #c7c7cc transparent;
+  scrollbar-color: #bdcbd6 transparent;
 }
 
 .no-scrollbar::-webkit-scrollbar {

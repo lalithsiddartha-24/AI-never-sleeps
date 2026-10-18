@@ -1,7 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Activity, Bookmark, Search, Settings } from 'lucide-react';
+import { Pulse as Activity, BookmarkSimple as Bookmark, MagnifyingGlass as Search, GearSix as Settings } from '@phosphor-icons/react';
 import { SearchBar } from './components/SearchBar';
 import { SkeletonGrid } from './components/Skeletons';
 import { useBookmarks } from './hooks/useBookmarks';
@@ -38,7 +38,7 @@ const NAV_LINKS = [
 function Header() {
   const { count } = useBookmarks();
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-white/85 shadow-[0_1px_0_rgba(0,0,0,0.02)] backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-line bg-surface/90 shadow-[0_1px_0_rgba(11,84,151,0.04)] backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center gap-4 px-4 sm:px-6">
         <Link to="/" className="flex shrink-0 items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent text-white shadow-sm">
@@ -85,9 +85,9 @@ function Header() {
           <Link
             to="/bookmarks"
             aria-label="Bookmarks"
-            className="relative flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface text-zinc-400 transition-colors hover:bg-surface2 hover:text-zinc-50"
+            className="relative flex h-9 w-9 items-center justify-center rounded-full border border-line bg-surface text-accent transition-colors hover:border-accent/40 hover:bg-accent/5"
           >
-            <Bookmark size={14} />
+            <Bookmark size={17} weight="regular" color="#0B5497" />
             {count > 0 && (
               <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent px-1 font-mono text-[9px] font-bold text-ink tnum">
                 {count > 99 ? '99+' : count}
@@ -127,7 +127,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="mt-16 border-t border-line bg-white/60">
+    <footer className="mt-16 border-t border-line bg-surface/70">
       <div className="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-3 px-4 py-8 sm:flex-row sm:items-center sm:px-6">
         <p className="text-xs tracking-wide text-zinc-500">
           AI Never Sleeps — Everything happening in AI. One place.

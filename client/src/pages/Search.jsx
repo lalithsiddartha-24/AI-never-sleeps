@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { Building2, Cpu, FileText, GraduationCap, Newspaper, Search as SearchIcon, Wrench } from 'lucide-react';
+import { Buildings as Building2, Cpu, FileText, GraduationCap, Newspaper, MagnifyingGlass as SearchIcon, Wrench } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { NewsCard } from '../components/NewsCard';

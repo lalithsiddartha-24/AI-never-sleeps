@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  Activity,
-  AlertTriangle,
-  CheckCircle2,
+  Pulse as Activity,
+  Warning as AlertTriangle,
+  CheckCircle as CheckCircle2,
   Copy,
   Gauge,
   GraduationCap,
-  Loader2,
+  CircleNotch as Loader2,
   Plus,
-  RefreshCw,
+  ArrowClockwise as RefreshCw,
   Rss,
-  Trash2,
+  Trash as Trash2,
   Wrench,
   XCircle,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { Badge } from '../components/Chips';
@@ -25,9 +25,9 @@ function StatCard({ label, value, tone = 'neutral', icon: Icon }) {
   const tones = {
     neutral: 'text-zinc-100',
     accent: 'text-accent',
-    red: 'text-red-400',
-    amber: 'text-amber-300',
-    green: 'text-emerald-300',
+    red: 'text-red-700',
+    amber: 'text-amber-800',
+    green: 'text-emerald-800',
   };
   return (
     <div className="border border-line bg-surface p-4">
@@ -86,15 +86,15 @@ function AddSourceForm({ onAdded }) {
       >
         {busy ? <Loader2 size={12} className="animate-spin" /> : <Plus size={12} />} Add
       </button>
-      {error && <p className="text-xs text-red-400 sm:col-span-2 lg:col-span-6">{error}</p>}
+      {error && <p className="text-xs text-red-700 sm:col-span-2 lg:col-span-6">{error}</p>}
     </form>
   );
 }
 
 const LOG_STATUS = {
-  ok: { icon: CheckCircle2, cls: 'text-emerald-400' },
+  ok: { icon: CheckCircle2, cls: 'text-emerald-700' },
   empty: { icon: Activity, cls: 'text-zinc-500' },
-  error: { icon: XCircle, cls: 'text-red-400' },
+  error: { icon: XCircle, cls: 'text-red-700' },
 };
 
 export default function Admin() {
@@ -253,7 +253,7 @@ export default function Admin() {
                         type="button"
                         onClick={() => deleteSource(src)}
                         aria-label={`Delete ${src.name}`}
-                        className="border border-line p-1.5 text-zinc-500 hover:border-red-400/40 hover:text-red-400"
+                        className="border border-line p-1.5 text-zinc-500 hover:border-red-400/40 hover:text-red-700"
                       >
                         <Trash2 size={12} />
                       </button>
@@ -317,7 +317,7 @@ export default function Admin() {
                     <td className="px-3 py-2 text-right font-mono tnum">{log.items_found}</td>
                     <td className="px-3 py-2 text-right font-mono tnum text-accent">{log.items_added}</td>
                     <td className="px-3 py-2 text-right font-mono tnum text-zinc-500">{log.duration_ms}ms</td>
-                    <td className="max-w-[240px] truncate px-3 py-2 font-mono text-[10px] text-red-400/80">
+                    <td className="max-w-[240px] truncate px-3 py-2 font-mono text-[10px] text-red-700">
                       {log.error || ''}
                     </td>
                   </tr>

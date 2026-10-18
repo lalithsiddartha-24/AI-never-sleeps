@@ -76,23 +76,23 @@ export function toISO(value) {
 }
 
 const CATEGORY_STYLES = {
-  'AI Models': { chip: 'bg-violet-400/10 text-violet-300', dot: 'bg-violet-400' },
-  'AI Research': { chip: 'bg-blue-400/10 text-blue-300', dot: 'bg-blue-400' },
-  'AI Agents': { chip: 'bg-emerald-400/10 text-emerald-300', dot: 'bg-emerald-400' },
-  'AI Coding': { chip: 'bg-lime-400/10 text-lime-300', dot: 'bg-lime-400' },
-  'Generative AI': { chip: 'bg-fuchsia-400/10 text-fuchsia-300', dot: 'bg-fuchsia-400' },
-  Robotics: { chip: 'bg-orange-400/10 text-orange-300', dot: 'bg-orange-400' },
-  'Computer Vision': { chip: 'bg-cyan-400/10 text-cyan-300', dot: 'bg-cyan-400' },
-  'AI Hardware': { chip: 'bg-red-400/10 text-red-300', dot: 'bg-red-400' },
-  'Open Source': { chip: 'bg-green-400/10 text-green-300', dot: 'bg-green-400' },
-  'AI Startups': { chip: 'bg-pink-400/10 text-pink-300', dot: 'bg-pink-400' },
-  'AI Business': { chip: 'bg-amber-400/10 text-amber-300', dot: 'bg-amber-400' },
-  'AI Safety': { chip: 'bg-yellow-400/10 text-yellow-300', dot: 'bg-yellow-400' },
-  'AI Regulation': { chip: 'bg-indigo-400/10 text-indigo-300', dot: 'bg-indigo-400' },
-  Uncategorized: { chip: 'bg-zinc-400/10 text-zinc-400', dot: 'bg-zinc-400' },
+  'AI Models': { chip: 'bg-violet-50 text-violet-800', dot: 'bg-violet-500' },
+  'AI Research': { chip: 'bg-accent/10 text-accent', dot: 'bg-accent' },
+  'AI Agents': { chip: 'bg-emerald-50 text-emerald-800', dot: 'bg-emerald-500' },
+  'AI Coding': { chip: 'bg-lime-50 text-lime-900', dot: 'bg-lime-600' },
+  'Generative AI': { chip: 'bg-fuchsia-50 text-fuchsia-800', dot: 'bg-fuchsia-500' },
+  Robotics: { chip: 'bg-accent/10 text-accent', dot: 'bg-accent' },
+  'Computer Vision': { chip: 'bg-cyan-50 text-cyan-800', dot: 'bg-cyan-500' },
+  'AI Hardware': { chip: 'bg-red-50 text-red-800', dot: 'bg-red-500' },
+  'Open Source': { chip: 'bg-green-50 text-green-800', dot: 'bg-green-500' },
+  'AI Startups': { chip: 'bg-pink-50 text-pink-800', dot: 'bg-pink-500' },
+  'AI Business': { chip: 'bg-amber-50 text-amber-800', dot: 'bg-amber-500' },
+  'AI Safety': { chip: 'bg-yellow-50 text-yellow-900', dot: 'bg-yellow-600' },
+  'AI Regulation': { chip: 'bg-indigo-50 text-indigo-800', dot: 'bg-indigo-500' },
+  Uncategorized: { chip: 'bg-surface2 text-zinc-500', dot: 'bg-zinc-400' },
 };
 
-const FALLBACK_STYLE = { chip: 'bg-zinc-400/10 text-zinc-400', dot: 'bg-zinc-400' };
+const FALLBACK_STYLE = { chip: 'bg-surface2 text-zinc-500', dot: 'bg-zinc-400' };
 
 export function categoryStyle(category) {
   return CATEGORY_STYLES[category] || FALLBACK_STYLE;

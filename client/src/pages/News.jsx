@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Newspaper } from 'lucide-react';
+import { Newspaper } from '@phosphor-icons/react';
 import api from '../api';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterBar } from '../components/FilterBar';
@@ -86,31 +86,31 @@ export default function News() {
           onChange={(v) => updateParam('category', v, '')}
           colored
         />
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex items-center gap-1">
+        <div className="flex flex-wrap items-center justify-between gap-3 border-y border-line py-2">
+          <div className="inline-flex items-center rounded-full border border-line bg-surface2 p-1">
             {SORTS.map((s) => (
               <button
                 key={s.key}
                 type="button"
                 onClick={() => updateParam('sort', s.key, 'published_at')}
-                className={`border px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider transition-colors ${
+                className={`rounded-full px-3 py-1.5 font-mono text-[10px] uppercase tracking-wider transition-colors ${
                   sort === s.key
-                    ? 'border-accent/50 bg-accent/10 text-accent'
-                    : 'border-line bg-surface text-zinc-500 hover:text-zinc-200'
+                    ? 'bg-surface text-accent shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-200'
                 }`}
               >
                 {s.label}
               </button>
             ))}
           </div>
-          <label className="inline-flex cursor-pointer items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+          <label className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-line bg-surface px-3 py-2 text-xs text-zinc-500 transition-colors hover:border-accent/40 hover:text-zinc-200">
             <input
               type="checkbox"
               checked={clustered}
               onChange={(e) => updateParam('clustered', e.target.checked ? '' : '0', '')}
               className="h-3 w-3 accent-[var(--color-accent)]"
             />
-            Group duplicate coverage
+            Group duplicates
           </label>
         </div>
       </div>

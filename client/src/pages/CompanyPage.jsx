@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ArrowLeft, Building2, ExternalLink, MapPin } from 'lucide-react';
+import { ArrowLeft, Buildings as Building2, ArrowSquareOut as ExternalLink, MapPin } from '@phosphor-icons/react';
 import api from '../api';
 import { Monogram } from '../components/Monogram';
 import { Tag } from '../components/Chips';

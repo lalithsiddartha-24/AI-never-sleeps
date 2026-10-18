@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronDown, ExternalLink, Layers } from 'lucide-react';
+import { CaretDown as ChevronDown, ArrowSquareOut as ExternalLink, Stack as Layers } from '@phosphor-icons/react';
 import { CategoryChip, ImportanceMeter, Tag } from './Chips';
 import { Monogram, Thumbnail } from './Monogram';
 import { BookmarkButton } from './BookmarkButton';

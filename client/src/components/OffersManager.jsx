@@ -1,15 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
-  BadgeCheck,
-  CheckCircle2,
-  Loader2,
-  Pencil,
+  SealCheck as BadgeCheck,
+  CheckCircle as CheckCircle2,
+  CircleNotch as Loader2,
+  PencilSimple as Pencil,
   Plus,
-  RefreshCw,
-  Trash2,
+  ArrowClockwise as RefreshCw,
+  Trash as Trash2,
   X,
   XCircle,
-} from 'lucide-react';
+} from '@phosphor-icons/react';
 import api from '../api';
 import { StatusPill } from './StatusPill';
 import { formatDate, toISO } from '../utils';
@@ -130,7 +130,7 @@ function OfferForm({ meta, initial, onCancel, onSaved, notify }) {
         </label>
       </div>
 
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs text-red-700">{error}</p>}
 
       <div className="flex items-center gap-2">
         <button type="submit" disabled={busy} className="inline-flex h-9 items-center gap-1.5 bg-accent px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-ink hover:opacity-90 disabled:opacity-50">
@@ -287,18 +287,18 @@ export function OffersManager({ notify, verifying, onStats }) {
                     </button>
                     <button type="button" onClick={() => act(() => api.admin.verifyOffer(o.id, {}), `Marked verified: ${o.title}`)}
                       aria-label={`Verify ${o.title}`} title="Mark verified"
-                      className="border border-line p-1.5 text-zinc-500 hover:border-emerald-400/40 hover:text-emerald-400">
+                      className="border border-line p-1.5 text-zinc-500 hover:border-emerald-400/40 hover:text-emerald-700">
                       <BadgeCheck size={12} />
                     </button>
                     <button type="button" onClick={() => act(() => api.admin.expireOffer(o.id), `Marked expired: ${o.title}`)}
                       aria-label={`Expire ${o.title}`} title="Mark expired"
-                      className="border border-line p-1.5 text-zinc-500 hover:border-amber-400/40 hover:text-amber-400">
+                      className="border border-line p-1.5 text-zinc-500 hover:border-amber-400/40 hover:text-amber-700">
                       <XCircle size={12} />
                     </button>
                     <button type="button"
                       onClick={() => { if (window.confirm(`Remove offer "${o.title}"?`)) act(() => api.admin.deleteOffer(o.id), 'Offer removed'); }}
                       aria-label={`Delete ${o.title}`} title="Delete"
-                      className="border border-line p-1.5 text-zinc-500 hover:border-red-400/40 hover:text-red-400">
+                      className="border border-line p-1.5 text-zinc-500 hover:border-red-400/40 hover:text-red-700">
                       <Trash2 size={12} />
                     </button>
                   </div>

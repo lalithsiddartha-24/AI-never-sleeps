@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building2, ExternalLink, MapPin } from 'lucide-react';
+import { Buildings as Building2, ArrowSquareOut as ExternalLink, MapPin } from '@phosphor-icons/react';
 import { Monogram } from './Monogram';
 import { Tag } from './Chips';
 import { parseList } from '../utils';
